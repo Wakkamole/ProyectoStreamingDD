@@ -2,7 +2,9 @@ package iteso.mx.games;
 
 import iteso.mx.trash.Trash;
 import iteso.mx.trashLevels.TrashLevel;
+import iteso.mx.trashLevels.TrashLevelAdvanced;
 import iteso.mx.trashLevels.TrashLevelBegginer;
+import iteso.mx.trashLevels.TrashLevelIntermediate;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -157,13 +159,23 @@ public abstract class Game {
                 String name = rs.getString("Name");
                 String value = rs.getString(levelString+"Value");
 
-
-                TrashLevel trashLevelTmp = new TrashLevelBegginer();
-                trashLevelTmp.setValue(value);
-
                 Trash tmpTrashObject = new Trash();
                 tmpTrashObject.setName(name);
-                tmpTrashObject.setValue(trashLevelTmp);
+
+                if(level == 1){
+                    TrashLevel trashLevelTmp = new TrashLevelBegginer();
+                    trashLevelTmp.setValue(value);
+                    tmpTrashObject.setValue(trashLevelTmp);
+                }
+                else if(level == 2){
+                    TrashLevel trashLevelTmp = new TrashLevelIntermediate();
+                    trashLevelTmp.setValue(value);
+                    tmpTrashObject.setValue(trashLevelTmp);
+                }else{
+                    TrashLevel trashLevelTmp = new TrashLevelAdvanced();
+                    trashLevelTmp.setValue(value);
+                    tmpTrashObject.setValue(trashLevelTmp);
+                }
 
 
                 tmpTrash.add(tmpTrashObject);
@@ -173,11 +185,9 @@ public abstract class Game {
             System.out.println(err.getMessage());
         }
 
-        System.out.println();
         System.out.println("Succesfully loaded all the objects from the database");
 
         return tmpTrash;
     }
-
 
 }
