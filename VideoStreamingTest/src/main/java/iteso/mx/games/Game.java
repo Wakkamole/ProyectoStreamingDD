@@ -19,7 +19,7 @@ public abstract class Game {
     String levelString;
 
     ArrayList<Trash> trash;
-    String[] results;
+    ArrayList<String> results = new ArrayList<String>();
 
     //Driver
     public void play(Game game){
@@ -105,32 +105,50 @@ public abstract class Game {
     }
 
     public void startGame(){
-        trash = loadTrash();
+
+        Scanner input = new Scanner(System.in);
         System.out.println("Ready... Set... Go!");
 
-        for(int i = 0; i > numObjects; i++){
+        //For now its 2, later is going to be numObjects
+        for(int i=0; i < numObjects; i++){
+            /* Print trash object and menu option */
 
-            //Print trash object and menu option
-            //  printAnswersMenu();
+            System.out.println(trash.get(i).getName());
+            System.out.println();
+            printAnswersMenu();
+
             //Capture user response
 
+            String answer = input.nextLine();
+            boolean isCorrect = evalAnswer(answer,trash.get(i).getValue().getValue());
+            System.out.println(isCorrect);
+
             //in results array, write in "i" position the name of the trash and if he got it right or wrong
-            //if answer was correct, add 1 to score
+            if (isCorrect) {
+                score++;
+                //results[1] = "Trash object number " + 0 + " known as " + trash.get(0).getValue().getValue() + " was correct!";
+                results.add("Trash object number " + i + " known as " + trash.get(i).getName() + " was correct!");
+            }
+            else{
+                results.add("Trash object number " + i + " known as " + trash.get(i).getValue().getValue() + " was incorrect");
+            }
         }
 
         //at the end of the questions, get the total score and divide it with numObjects to get a percentage and print it
-        //call "printResults" function and exit
+        printResults(results);
+        //System.out.println(results.get(0));
     }
 
-    public void printResults(String[] results) {
-        System.out.println("Your score was: " + score);
+    public void printResults(ArrayList<String> results) {
+        System.out.println("Your total score was: " +score + " out of " + numObjects + " possible answers");
         System.out.println();
-        System.out.println("------------------------------------------------------------------");
-        for(int i = 0; i > results.length; i++){
-            System.out.println(results[i]);
+
+
+        for (int i = 0; i < results.size(); i++){
+            System.out.println(results.get(i));
         }
-        System.out.println();
-        System.out.println("------------------------------------------------------------------");
+
+
         System.out.println();
         System.out.println("Extiting...");
     }
@@ -190,4 +208,7 @@ public abstract class Game {
         return tmpTrash;
     }
 
+    public boolean evalAnswer(String userAnswer, String trashValue){
+        return false;
+    }
 }
