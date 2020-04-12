@@ -1,15 +1,18 @@
 package iteso.mx.games;
 
 import iteso.mx.trash.Trash;
+import iteso.mx.trashLevels.TrashLevel;
+import iteso.mx.trashLevels.TrashLevelBegginer;
 
 import java.util.ArrayList;
+import java.sql.*;
 import java.util.Scanner;
 
 public class BegginerGame extends Game {
 
-    //@Override PENDING
-    public void loadTrash(ArrayList<Trash> trash) {
-        super.loadTrash();
+    public BegginerGame(){
+        level = 1;
+        levelString = "Beginner";
     }
 
     @Override
@@ -22,4 +25,6 @@ public class BegginerGame extends Game {
         System.out.println("  1) Organica");
         System.out.println("  2) Inorganica");
     }
+
+
 }

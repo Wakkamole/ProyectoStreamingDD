@@ -1,6 +1,10 @@
 package iteso.mx.games;
 
 import iteso.mx.trash.Trash;
+import iteso.mx.trashLevels.TrashLevel;
+import iteso.mx.trashLevels.TrashLevelBegginer;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -10,8 +14,17 @@ public abstract class Game {
     int numObjects;
     int score;
     int level;
+    String levelString;
+
     ArrayList<Trash> trash;
     String[] results;
+
+    //Driver
+    public void play(Game game){
+        game.prepareGame();
+        trash = game.loadTrash();
+        game.startGame();
+    }
 
     public int getTimeLimit() {
         return timeLimit;
@@ -57,9 +70,9 @@ public abstract class Game {
         while(!validOption){
 
             System.out.println("Please Select the option (letter a, b or c) with how many objects do you want to play with: ");
-            System.out.println("     a) 20");
-            System.out.println("     b) 35");
-            System.out.println("     c) 50");
+            System.out.println("  a) 20");
+            System.out.println("  b) 35");
+            System.out.println("  c) 50");
 
             String option = input.nextLine();
 
@@ -89,7 +102,7 @@ public abstract class Game {
         System.out.println();
     }
 
-    public void playGame(){
+    public void startGame(){
         trash = loadTrash();
         System.out.println("Ready... Set... Go!");
 
@@ -126,9 +139,44 @@ public abstract class Game {
 
     //Implementation of this method depends on the Level
     public ArrayList<Trash> loadTrash(){
-        ArrayList<Trash> trash = new ArrayList<Trash>();
+        ArrayList<Trash> tmpTrash = new ArrayList<Trash>();
 
-        return trash;
+        try {
+            String host = "jdbc:mysql://localhost:3306/project";
+            String uName = "root";
+            String uPass = "welcome1";
+            Connection con = DriverManager.getConnection(host, uName, uPass);
+
+            Statement stat = con.createStatement();
+            String query = "SELECT * FROM project.trash";
+            ResultSet rs = stat.executeQuery(query);
+
+            while ( rs.next()) {
+
+                //int id = rs.getInt("ID");
+                String name = rs.getString("Name");
+                String value = rs.getString(levelString+"Value");
+
+
+                TrashLevel trashLevelTmp = new TrashLevelBegginer();
+                trashLevelTmp.setValue(value);
+
+                Trash tmpTrashObject = new Trash();
+                tmpTrashObject.setName(name);
+                tmpTrashObject.setValue(trashLevelTmp);
+
+
+                tmpTrash.add(tmpTrashObject);
+            }
+
+        } catch (SQLException err) {
+            System.out.println(err.getMessage());
+        }
+
+        System.out.println();
+        System.out.println("Succesfully loaded all the objects from the database");
+
+        return tmpTrash;
     }
 
 
