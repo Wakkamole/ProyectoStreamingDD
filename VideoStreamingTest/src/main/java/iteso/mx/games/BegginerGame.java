@@ -22,8 +22,8 @@ public class BegginerGame extends Game {
 
     @Override
     public void printAnswersMenu() {
-        System.out.println("  a) Organic");
-        System.out.println("  b) Inorganic");
+        System.out.println("  a) Organico");
+        System.out.println("  b) Inorganico");
     }
 
     @Override
@@ -31,9 +31,9 @@ public class BegginerGame extends Game {
 
         String aux = "";
         if (userAnswer.equals("a"))
-            aux = "Organic";
+            aux = "Organico";
         else if (userAnswer.equals("b"))
-            aux = "Inorganic";
+            aux = "Inorganico";
         else
             System.out.println("Please enter a valid option");
 

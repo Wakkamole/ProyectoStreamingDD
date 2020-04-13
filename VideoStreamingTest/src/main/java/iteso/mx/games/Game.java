@@ -8,6 +8,7 @@ import iteso.mx.trashLevels.TrashLevelIntermediate;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public abstract class Game {
@@ -20,6 +21,7 @@ public abstract class Game {
 
     ArrayList<Trash> trash;
     ArrayList<String> results = new ArrayList<String>();
+    ArrayList<Integer> randomNumbers = new ArrayList<>();
 
     //Driver
     public void play(Game game){
@@ -109,28 +111,29 @@ public abstract class Game {
         Scanner input = new Scanner(System.in);
         System.out.println("Ready... Set... Go!");
 
+        randomNumbers = setRandomNumbers();
+
         //For now its 2, later is going to be numObjects
         for(int i=0; i < numObjects; i++){
             /* Print trash object and menu option */
 
-            System.out.println(trash.get(i).getName());
+            System.out.println(trash.get(randomNumbers.get(i)).getName());
             System.out.println();
             printAnswersMenu();
 
             //Capture user response
 
             String answer = input.nextLine();
-            boolean isCorrect = evalAnswer(answer,trash.get(i).getValue().getValue());
-            System.out.println(isCorrect);
+            boolean isCorrect = evalAnswer(answer,trash.get(randomNumbers.get(i)).getValue().getValue());
 
             //in results array, write in "i" position the name of the trash and if he got it right or wrong
             if (isCorrect) {
                 score++;
                 //results[1] = "Trash object number " + 0 + " known as " + trash.get(0).getValue().getValue() + " was correct!";
-                results.add("Trash object number " + i + " known as " + trash.get(i).getName() + " was correct!");
+                results.add("Trash object number " + i + " known as " + trash.get(randomNumbers.get(i)).getName() + " was correct!");
             }
             else{
-                results.add("Trash object number " + i + " known as " + trash.get(i).getValue().getValue() + " was incorrect");
+                results.add("Trash object number " + i + " known as " + trash.get(randomNumbers.get(i)).getName() + " was incorrect");
             }
         }
 
@@ -168,7 +171,7 @@ public abstract class Game {
             Connection con = DriverManager.getConnection(host, uName, uPass);
 
             Statement stat = con.createStatement();
-            String query = "SELECT * FROM project.trash";
+            String query = "SELECT * FROM project.trash2";
             ResultSet rs = stat.executeQuery(query);
 
             while ( rs.next()) {
@@ -210,5 +213,20 @@ public abstract class Game {
 
     public boolean evalAnswer(String userAnswer, String trashValue){
         return false;
+    }
+
+    public ArrayList<Integer> setRandomNumbers() {
+        ArrayList<Integer> aux = new ArrayList<Integer>();
+        Random randomGenerator = new Random();
+        int counter = 0;
+
+        while (counter < numObjects) {
+            int randomInt = randomGenerator.nextInt(199);
+            if(! aux.contains(randomInt)){
+                aux.add(randomInt);
+                counter++;
+            }
+        }
+        return aux;
     }
 }

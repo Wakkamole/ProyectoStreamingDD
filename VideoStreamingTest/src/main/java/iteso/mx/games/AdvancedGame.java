@@ -13,13 +13,13 @@ public class AdvancedGame extends Game {
 
     @Override
     public void printAnswersMenu() {
-        System.out.println("  a) Organic");
-        System.out.println("  b) Paper");
-        System.out.println("  c) Glass");
+        System.out.println("  a) Organico");
+        System.out.println("  b) Papel");
+        System.out.println("  c) Vidrio");
         System.out.println("  d) Metal");
-        System.out.println("  e) Plastic");
-        System.out.println("  f) Textile");
-        System.out.println("  g) Tech Trash");
+        System.out.println("  e) Plastico");
+        System.out.println("  f) Textil");
+        System.out.println("  g) Basura Tecnologica");
     }
 
     @Override
@@ -27,21 +27,21 @@ public class AdvancedGame extends Game {
 
         String aux = "";
         if (userAnswer.equals("a"))
-            aux = "Organic";
+            aux = "Organico";
         else if (userAnswer.equals("b"))
-            aux = "Paper";
+            aux = "Papel";
         else if (userAnswer.equals("c"))
-            aux = "Glass";
+            aux = "Vidrio";
         else if (userAnswer.equals("d"))
             aux = "Metal";
         else if (userAnswer.equals("e"))
-            aux = "Plastic";
+            aux = "Plastico";
         else if (userAnswer.equals("f"))
-            aux = "Textile";
+            aux = "Textil";
         else if (userAnswer.equals("g"))
-            aux = "Tech Trash";
+            aux = "Basura Tecnologica";
         else
-            System.out.println("Please enter a valid option");
+            System.out.println("Ingresa una opcion valida");
 
         boolean answer = trashValue.equals(aux);
         return answer;
