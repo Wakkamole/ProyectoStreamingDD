@@ -1,3 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.29">
+<file name="D:\Documents\ITESO\Diseño de Software\Repositorios\StreamingDS-JO-VC\VideoStreamingTest\src\main\java\iteso\mx\games\Game.java">
+<error line="26" column="9" severity="error" message="Variable &apos;timeLimit&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="32" column="9" severity="error" message="Variable &apos;level&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="34" column="12" severity="error" message="Variable &apos;levelString&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+</file>
 </checkstyle>

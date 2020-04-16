@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="14" failures="0" name="iteso.mx.AdvancedGameTest" time="0.006" errors="0" skipped="0">
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="iteso.mx.AdvancedGameTest" time="0.003" tests="14" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="14+36-1461"/>
@@ -20,8 +20,7 @@
     <property name="java.runtime.version" value="14+36-1461"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.io.tmpdir" value="C:\Users\wakka\AppData\Local\Temp\"/>
-    <property name="line.separator" value="
-"/>
+    <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
@@ -50,28 +49,28 @@
     <property name="java.vm.info" value="mixed mode, sharing"/>
     <property name="java.version" value="14"/>
     <property name="java.vendor" value="Oracle Corporation"/>
-    <property name="sun.stderr.encoding" value="cp65001"/>
+    <property name="sun.stderr.encoding" value="cp437"/>
     <property name="maven.home" value="C:\apache-maven-3.6.3\bin\.."/>
     <property name="file.separator" value="\"/>
     <property name="java.version.date" value="2020-03-17"/>
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.endian" value="little"/>
-    <property name="sun.stdout.encoding" value="cp65001"/>
+    <property name="sun.stdout.encoding" value="cp437"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="iteso.mx.AdvancedGameTest" name="testEvalAnswerACorrect" time="0.005"/>
-  <testcase classname="iteso.mx.AdvancedGameTest" name="testEvalAnswerFCorrect" time="0"/>
-  <testcase classname="iteso.mx.AdvancedGameTest" name="testEvalAnswerGIncorrect" time="0"/>
-  <testcase classname="iteso.mx.AdvancedGameTest" name="testEvalAnswerDCorrect" time="0"/>
-  <testcase classname="iteso.mx.AdvancedGameTest" name="testEvalAnswerFIncorrect" time="0"/>
-  <testcase classname="iteso.mx.AdvancedGameTest" name="testEvalAnswerEIncorrect" time="0.001"/>
-  <testcase classname="iteso.mx.AdvancedGameTest" name="testEvalAnswerDIncorrect" time="0"/>
-  <testcase classname="iteso.mx.AdvancedGameTest" name="testEvalAnswerCIncorrect" time="0"/>
-  <testcase classname="iteso.mx.AdvancedGameTest" name="testEvalAnswerBCorrect" time="0"/>
-  <testcase classname="iteso.mx.AdvancedGameTest" name="testEvalAnswerBIncorrect" time="0"/>
-  <testcase classname="iteso.mx.AdvancedGameTest" name="testEvalAnswerGCorrect" time="0"/>
-  <testcase classname="iteso.mx.AdvancedGameTest" name="testEvalAnswerAIncorrect" time="0"/>
-  <testcase classname="iteso.mx.AdvancedGameTest" name="testEvalAnswerECorrect" time="0"/>
-  <testcase classname="iteso.mx.AdvancedGameTest" name="testEvalAnswerCCorrect" time="0"/>
+  <testcase name="testEvalAnswerACorrect" classname="iteso.mx.AdvancedGameTest" time="0.003"/>
+  <testcase name="testEvalAnswerFCorrect" classname="iteso.mx.AdvancedGameTest" time="0"/>
+  <testcase name="testEvalAnswerGIncorrect" classname="iteso.mx.AdvancedGameTest" time="0"/>
+  <testcase name="testEvalAnswerDCorrect" classname="iteso.mx.AdvancedGameTest" time="0"/>
+  <testcase name="testEvalAnswerFIncorrect" classname="iteso.mx.AdvancedGameTest" time="0"/>
+  <testcase name="testEvalAnswerEIncorrect" classname="iteso.mx.AdvancedGameTest" time="0"/>
+  <testcase name="testEvalAnswerDIncorrect" classname="iteso.mx.AdvancedGameTest" time="0"/>
+  <testcase name="testEvalAnswerCIncorrect" classname="iteso.mx.AdvancedGameTest" time="0"/>
+  <testcase name="testEvalAnswerBCorrect" classname="iteso.mx.AdvancedGameTest" time="0"/>
+  <testcase name="testEvalAnswerBIncorrect" classname="iteso.mx.AdvancedGameTest" time="0"/>
+  <testcase name="testEvalAnswerGCorrect" classname="iteso.mx.AdvancedGameTest" time="0"/>
+  <testcase name="testEvalAnswerAIncorrect" classname="iteso.mx.AdvancedGameTest" time="0"/>
+  <testcase name="testEvalAnswerECorrect" classname="iteso.mx.AdvancedGameTest" time="0"/>
+  <testcase name="testEvalAnswerCCorrect" classname="iteso.mx.AdvancedGameTest" time="0"/>
 </testsuite>

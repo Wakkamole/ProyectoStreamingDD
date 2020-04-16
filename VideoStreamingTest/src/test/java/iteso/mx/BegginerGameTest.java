@@ -7,9 +7,6 @@ import iteso.mx.trash.Trash;
 import org.junit.Test;
 import org.junit.Before;
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.when;
-
-import java.util.ArrayList;
 
 public class BegginerGameTest {
 

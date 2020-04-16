@@ -23,15 +23,15 @@ public abstract class Game {
     /** FIFTY. */
     private static final int FIFTY = 50;
     /** tiemLimit. */
-    private int timeLimit;
+    int timeLimit;
     /** numObjects. */
     private int numObjects;
     /** score. */
     private int score;
     /** level. */
-    private int level;
+    int level;
     /** levelString. */
-    private String levelString;
+    String levelString;
 
     /**
      * Trash Array.
