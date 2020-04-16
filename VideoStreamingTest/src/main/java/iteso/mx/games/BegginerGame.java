@@ -1,23 +1,27 @@
 package iteso.mx.games;
 
-import iteso.mx.trash.Trash;
-import iteso.mx.trashLevels.TrashLevel;
-import iteso.mx.trashLevels.TrashLevelBegginer;
+public final class BegginerGame extends Game {
 
-import java.util.ArrayList;
-import java.sql.*;
-import java.util.Scanner;
+     /**
+    *Javadoc comment.
+    */
+    private static final int LEVEL = 1;
+    /**
+    *Javadoc comment.
+    */
+    private static final int TIME_MULTIPLIER = 7;
 
-public class BegginerGame extends Game {
-
-    public BegginerGame(){
-        level = 1;
+    /**
+     * JavaDoc Comment.
+     */
+    public BegginerGame() {
+        level = LEVEL;
         levelString = "Beginner";
     }
 
     @Override
-    public void setTimeLimit(int timeLimit) {
-        this.timeLimit = timeLimit * 7;
+    public void setTimeLimit(final int timeLimit) {
+        this.timeLimit = timeLimit * TIME_MULTIPLIER;
     }
 
     @Override
@@ -27,15 +31,17 @@ public class BegginerGame extends Game {
     }
 
     @Override
-    public boolean evalAnswer(String userAnswer, String trashValue) {
+    public boolean evalAnswer(
+        final String userAnswer, final String trashValue) {
 
         String aux = "";
-        if (userAnswer.equals("a"))
+        if (userAnswer.equals("a")) {
             aux = "Organic";
-        else if (userAnswer.equals("b"))
+        } else if (userAnswer.equals("b")) {
             aux = "Inorganic";
-        else
+        } else {
             System.out.println("Please enter a valid option");
+        }
 
         boolean answer = trashValue.equals(aux);
         return answer;

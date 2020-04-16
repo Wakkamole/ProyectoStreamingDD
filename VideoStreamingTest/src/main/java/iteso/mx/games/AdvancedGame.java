@@ -1,14 +1,27 @@
 package iteso.mx.games;
 
-public class AdvancedGame extends Game {
-    public AdvancedGame(){
-        level = 3;
+public final class AdvancedGame extends Game {
+
+    /**
+    *Javadoc comment.
+    */
+    private static final int LEVEL = 3;
+    /**
+    *Javadoc comment.
+    */
+    private static final int TIME_MULTIPLIER = 3;
+
+    /**
+    *Javadoc comment.
+    */
+    public AdvancedGame() {
+        level = LEVEL;
         levelString = "Advanced";
     }
 
     @Override
-    public void setTimeLimit(int timeLimit) {
-        this.timeLimit = timeLimit * 3;
+    public void setTimeLimit(final int timeLimit) {
+        this.timeLimit = timeLimit * TIME_MULTIPLIER;
     }
 
     @Override
@@ -23,25 +36,27 @@ public class AdvancedGame extends Game {
     }
 
     @Override
-    public boolean evalAnswer(String userAnswer, String trashValue) {
+    public boolean evalAnswer(
+        final String userAnswer, final String trashValue) {
 
         String aux = "";
-        if (userAnswer.equals("a"))
+        if (userAnswer.equals("a")) {
             aux = "Organic";
-        else if (userAnswer.equals("b"))
+        } else if (userAnswer.equals("b")) {
             aux = "Paper";
-        else if (userAnswer.equals("c"))
+        } else if (userAnswer.equals("c")) {
             aux = "Glass";
-        else if (userAnswer.equals("d"))
+        } else if (userAnswer.equals("d")) {
             aux = "Metal";
-        else if (userAnswer.equals("e"))
+        } else if (userAnswer.equals("e")) {
             aux = "Plastic";
-        else if (userAnswer.equals("f"))
+        } else if (userAnswer.equals("f")) {
             aux = "Textile";
-        else if (userAnswer.equals("g"))
+        } else if (userAnswer.equals("g")) {
             aux = "Tech Trash";
-        else
+        } else {
             System.out.println("Please enter a valid option");
+        }
 
         boolean answer = trashValue.equals(aux);
         return answer;

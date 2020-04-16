@@ -1,15 +1,26 @@
 package iteso.mx.games;
 
-public class MediumGame extends Game {
+public final class MediumGame extends Game {
+    /**
+    *Javadoc comment.
+    */
+    private static final int LEVEL = 2;
+    /**
+    *Javadoc comment.
+    */
+    private static final int TIME_MULTIPLIER = 5;
 
-    public MediumGame(){
-        level = 2;
+    /**
+    *Javadoc comment.
+    */
+    public MediumGame() {
+        level = LEVEL;
         levelString = "Intermediate";
     }
 
     @Override
-    public void setTimeLimit(int timeLimit) {
-        this.timeLimit = timeLimit * 5;
+    public void setTimeLimit(final int timeLimit) {
+        this.timeLimit = timeLimit * TIME_MULTIPLIER;
     }
 
     @Override
@@ -20,17 +31,19 @@ public class MediumGame extends Game {
     }
 
     @Override
-    public boolean evalAnswer(String userAnswer, String trashValue) {
+    public boolean evalAnswer(
+        final String userAnswer, final String trashValue) {
 
         String aux = "";
-        if (userAnswer.equals("a"))
+        if (userAnswer.equals("a")) {
             aux = "Organic";
-        else if (userAnswer.equals("b"))
+        } else if (userAnswer.equals("b")) {
             aux = "Inorganic";
-        else if (userAnswer.equals("c"))
+        } else if (userAnswer.equals("c")) {
             aux = "Recyclable";
-        else
+        } else {
             System.out.println("Please enter a valid option");
+        }
 
         boolean answer = trashValue.equals(aux);
         return answer;

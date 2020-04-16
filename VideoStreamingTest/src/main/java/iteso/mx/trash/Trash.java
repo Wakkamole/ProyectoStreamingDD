@@ -2,23 +2,41 @@ package iteso.mx.trash;
 
 import iteso.mx.trashLevels.TrashLevel;
 
-public class Trash {
-    String name;
-    TrashLevel value;
+public final class Trash {
+    /** String name. */
+    private String name;
+    /** TrashLevel value. */
+    private TrashLevel value;
 
+    /**
+     *
+     * @return name.
+     */
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     *
+     * @param name1 .
+     */
+    public void setName(final String name1) {
+        this.name = name1;
     }
 
+    /**
+     *
+     * @return value.
+     */
     public TrashLevel getValue() {
         return value;
     }
 
-    public void setValue(TrashLevel value) {
-        this.value = value;
+    /**
+     *
+     * @param value1 .
+     */
+    public void setValue(final TrashLevel value1) {
+        this.value = value1;
     }
 }
