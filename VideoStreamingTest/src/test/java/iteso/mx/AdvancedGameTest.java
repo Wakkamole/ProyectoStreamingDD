@@ -18,13 +18,13 @@ public class AdvancedGameTest {
 
     @Test
     public void testEvalAnswerACorrect(){
-        mockedTrashLevel.setValue("Organic");
+        mockedTrashLevel.setValue("Organico");
         assertTrue(Game.evalAnswer("a", mockedTrashLevel.getValue()));
     }
     
     @Test
     public void testEvalAnswerAIncorrect(){
-        mockedTrashLevel.setValue("Organic");
+        mockedTrashLevel.setValue("Organico");
         assertFalse(Game.evalAnswer("b", mockedTrashLevel.getValue()));
         assertFalse(Game.evalAnswer("c", mockedTrashLevel.getValue()));
         assertFalse(Game.evalAnswer("d", mockedTrashLevel.getValue()));
@@ -35,13 +35,13 @@ public class AdvancedGameTest {
 
     @Test
     public void testEvalAnswerBCorrect(){
-        mockedTrashLevel.setValue("Paper");
+        mockedTrashLevel.setValue("Papel");
         assertTrue(Game.evalAnswer("b", mockedTrashLevel.getValue()));
     }
     
     @Test
     public void testEvalAnswerBIncorrect(){
-        mockedTrashLevel.setValue("Paper");
+        mockedTrashLevel.setValue("Papel");
         assertFalse(Game.evalAnswer("a", mockedTrashLevel.getValue()));
         assertFalse(Game.evalAnswer("c", mockedTrashLevel.getValue()));
         assertFalse(Game.evalAnswer("d", mockedTrashLevel.getValue()));
@@ -52,13 +52,13 @@ public class AdvancedGameTest {
 
     @Test
     public void testEvalAnswerCCorrect(){
-        mockedTrashLevel.setValue("Glass");
+        mockedTrashLevel.setValue("Vidrio");
         assertTrue(Game.evalAnswer("c", mockedTrashLevel.getValue()));
     }
     
     @Test
     public void testEvalAnswerCIncorrect(){
-        mockedTrashLevel.setValue("Glass");
+        mockedTrashLevel.setValue("Vidrio");
         assertFalse(Game.evalAnswer("a", mockedTrashLevel.getValue()));
         assertFalse(Game.evalAnswer("b", mockedTrashLevel.getValue()));
         assertFalse(Game.evalAnswer("d", mockedTrashLevel.getValue()));
@@ -86,13 +86,13 @@ public class AdvancedGameTest {
 
     @Test
     public void testEvalAnswerECorrect(){
-        mockedTrashLevel.setValue("Plastic");
+        mockedTrashLevel.setValue("Plastico");
         assertTrue(Game.evalAnswer("e", mockedTrashLevel.getValue()));
     }
     
     @Test
     public void testEvalAnswerEIncorrect(){
-        mockedTrashLevel.setValue("Plastic");
+        mockedTrashLevel.setValue("Plastico");
         assertFalse(Game.evalAnswer("a", mockedTrashLevel.getValue()));
         assertFalse(Game.evalAnswer("b", mockedTrashLevel.getValue()));
         assertFalse(Game.evalAnswer("c", mockedTrashLevel.getValue()));
@@ -103,13 +103,13 @@ public class AdvancedGameTest {
     
     @Test
     public void testEvalAnswerFCorrect(){
-        mockedTrashLevel.setValue("Textile");
+        mockedTrashLevel.setValue("Textil");
         assertTrue(Game.evalAnswer("f", mockedTrashLevel.getValue()));
     }
     
     @Test
     public void testEvalAnswerFIncorrect(){
-        mockedTrashLevel.setValue("Textile");
+        mockedTrashLevel.setValue("Textil");
         assertFalse(Game.evalAnswer("a", mockedTrashLevel.getValue()));
         assertFalse(Game.evalAnswer("b", mockedTrashLevel.getValue()));
         assertFalse(Game.evalAnswer("c", mockedTrashLevel.getValue()));
@@ -120,19 +120,40 @@ public class AdvancedGameTest {
 
     @Test
     public void testEvalAnswerGCorrect(){
-        mockedTrashLevel.setValue("Tech Trash");
+        mockedTrashLevel.setValue("Basura Tecnologica");
         assertTrue(Game.evalAnswer("g", mockedTrashLevel.getValue()));
     }
     
     @Test
     public void testEvalAnswerGIncorrect(){
-        mockedTrashLevel.setValue("Tech Trash");
+        mockedTrashLevel.setValue("Basura Tecnologica");
         assertFalse(Game.evalAnswer("a", mockedTrashLevel.getValue()));
         assertFalse(Game.evalAnswer("b", mockedTrashLevel.getValue()));
         assertFalse(Game.evalAnswer("c", mockedTrashLevel.getValue()));
         assertFalse(Game.evalAnswer("d", mockedTrashLevel.getValue()));
         assertFalse(Game.evalAnswer("e", mockedTrashLevel.getValue()));
         assertFalse(Game.evalAnswer("f", mockedTrashLevel.getValue()));
+    }
+
+    @Test
+    public void testNumObjects(){
+      int num = 25;
+      Game.setNumObjects(num);
+      assertEquals(25, Game.getNumObjects());
+    }
+  
+    @Test
+    public void testTimeLimit(){
+      int num = 25;
+      Game.setNumObjects(num);
+      int numObjects = Game.getNumObjects();
+      Game.setTimeLimit(numObjects,5);
+      assertEquals(num*5, Game.getTimeLimit());
+    }
+  
+    @Test
+    public void testLevel(){
+      assertEquals(3, Game.getLevel());
     }
 
 }

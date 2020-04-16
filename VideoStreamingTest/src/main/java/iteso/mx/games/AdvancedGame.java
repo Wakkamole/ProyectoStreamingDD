@@ -14,6 +14,7 @@ public final class AdvancedGame extends Game {
     *Javadoc comment.
     */
     private static final int TIME_MULTIPLIER = 3;
+    /** timelimit. */
     private int timeLimit;
 
     /**
@@ -26,10 +27,10 @@ public final class AdvancedGame extends Game {
 
     /**
      *
-     * @param timeLimit .
+     * @param timeLimit1 .
      */
-    public void setTimeLimit(final int timeLimit) {
-        this.timeLimit = timeLimit * TIME_MULTIPLIER;
+    public void setTimeLimit(final int timeLimit1) {
+        this.timeLimit = timeLimit1 * TIME_MULTIPLIER;
     }
 
     @Override
@@ -49,22 +50,23 @@ public final class AdvancedGame extends Game {
 
         String aux = "";
 
-        if (userAnswer.equals("a"))
+        if (userAnswer.equals("a")) {
             aux = "Organico";
-        else if (userAnswer.equals("b"))
+        } else if (userAnswer.equals("b")) {
             aux = "Papel";
-        else if (userAnswer.equals("c"))
+        } else if (userAnswer.equals("c")) {
             aux = "Vidrio";
-        else if (userAnswer.equals("d"))
+        } else if (userAnswer.equals("d")) {
             aux = "Metal";
-        else if (userAnswer.equals("e"))
+        } else if (userAnswer.equals("e")) {
             aux = "Plastico";
-        else if (userAnswer.equals("f"))
+        } else if (userAnswer.equals("f")) {
             aux = "Textil";
-        else if (userAnswer.equals("g"))
+        } else if (userAnswer.equals("g")) {
             aux = "Basura Tecnologica";
-        else
+        } else {
             System.out.println("Ingresa una opcion valida");
+        }
 
 
         boolean answer = trashValue.equals(aux);

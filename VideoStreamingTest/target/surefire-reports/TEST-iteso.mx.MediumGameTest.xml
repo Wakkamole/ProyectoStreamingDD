@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="iteso.mx.MediumGameTest" time="0" tests="6" errors="0" skipped="0" failures="0">
+<testsuite name="iteso.mx.MediumGameTest" time="0" tests="9" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="14+36-1461"/>
@@ -63,6 +63,9 @@
   <testcase name="testEvalAnswerBincorrect" classname="iteso.mx.MediumGameTest" time="0"/>
   <testcase name="testEvalAnswerAincorrect" classname="iteso.mx.MediumGameTest" time="0"/>
   <testcase name="testEvalAnswerACorrect" classname="iteso.mx.MediumGameTest" time="0"/>
+  <testcase name="testLevel" classname="iteso.mx.MediumGameTest" time="0"/>
+  <testcase name="testNumObjects" classname="iteso.mx.MediumGameTest" time="0"/>
   <testcase name="testEvalAnswerBCorrect" classname="iteso.mx.MediumGameTest" time="0"/>
+  <testcase name="testTimeLimit" classname="iteso.mx.MediumGameTest" time="0"/>
   <testcase name="testEvalAnswerCCorrect" classname="iteso.mx.MediumGameTest" time="0"/>
 </testsuite>

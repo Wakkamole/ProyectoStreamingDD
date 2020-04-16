@@ -22,25 +22,25 @@ public class BegginerGameTest {
 
   @Test
   public void testEvalAnswerACorrect(){
-    mockedTrashLevel.setValue("Organic");
+    mockedTrashLevel.setValue("Organico");
     assertTrue(Game.evalAnswer("a", mockedTrashLevel.getValue()));    
   }
 
   @Test
   public void testEvalAnswerAincorrect(){
-    mockedTrashLevel.setValue("Organic");
+    mockedTrashLevel.setValue("Organico");
     assertFalse(Game.evalAnswer("b", mockedTrashLevel.getValue()));    
   }
 
   @Test
   public void testEvalAnswerBCorrect(){
-    mockedTrashLevel.setValue("Inorganic");
+    mockedTrashLevel.setValue("Inorganico");
     assertTrue(Game.evalAnswer("b", mockedTrashLevel.getValue()));    
   }
 
   @Test
   public void testEvalAnswerBincorrect(){
-    mockedTrashLevel.setValue("Inorganic");
+    mockedTrashLevel.setValue("Inorganico");
     assertFalse(Game.evalAnswer("a", mockedTrashLevel.getValue()));    
   }
 
@@ -56,8 +56,8 @@ public class BegginerGameTest {
     int num = 25;
     Game.setNumObjects(num);
     int numObjects = Game.getNumObjects();
-    Game.setTimeLimit(numObjects,10);
-    assertEquals(num*7, Game.getTimeLimit());
+    Game.setTimeLimit(numObjects,5);
+    assertEquals(num*5, Game.getTimeLimit());
   }
 
   @Test

@@ -24,6 +24,8 @@ public abstract class Game {
     private static final int THIRTYFIVE = 35;
     /** FIFTY. */
     private static final int FIFTY = 50;
+    /** BOUND_INT constant. */
+    private static final int BOUND_INT = 199;
     /** tiemLimit. */
     private int timeLimit;
     /** numObjects. */
@@ -44,6 +46,7 @@ public abstract class Game {
      */
     private ArrayList<String> results = new ArrayList<String>();
 
+    /** TIME_MULTIPLIER Constant. */
     private static final int TIME_MULTIPLIER = 5;
 
     /**
@@ -51,7 +54,12 @@ public abstract class Game {
      * @param game
      */
 
-    ArrayList<Integer> randomNumbers = new ArrayList<>();
+    private ArrayList<Integer> randomNumbers = new ArrayList<>();
+
+    /**
+     *
+     * @param game .
+     */
     public void play(final Game game) {
 
     //Driver
@@ -183,7 +191,7 @@ public abstract class Game {
         System.out.println();
 
         //Setting time for game
-        setTimeLimit(numObjects,TIME_MULTIPLIER);
+        setTimeLimit(numObjects, TIME_MULTIPLIER);
 
         System.out.println("Game clock will be set to "
             + timeLimit + " seconds");
@@ -226,7 +234,8 @@ public abstract class Game {
             if (isCorrect) {
                 score++;
                 results.add("Trash object number " + i
-                        + " known as " + trash.get(i).getName() + " was correct!");
+                        + " known as " + trash.get(i).getName()
+                        + " was correct!");
             } else {
                 results.add("Trash object number " + i
                         + " known as " + trash.get(i).getValue().getValue()
@@ -239,7 +248,8 @@ public abstract class Game {
             timeSpend = timeEndSeconds - timeStartSeconds;
 
             System.out.println();
-            System.out.println("timeLimit " + timeLimit + "time Spend " + timeSpend);
+            System.out.println("timeLimit "
+                + timeLimit + "time Spend " + timeSpend);
             System.out.println();
 
             if (timeSpend > timeLimit) {
@@ -253,14 +263,17 @@ public abstract class Game {
         //System.out.println(results.get(0));
     }
 
-
+    /**
+     * print results.
+     */
     public void printResults() {
 
-        System.out.println("Your total score was: " +score + " out of " + numObjects + " possible answers");
+        System.out.println("Your total score was: "
+            + score + " out of " + numObjects + " possible answers");
         System.out.println();
 
 
-        for (int i = 0; i < results.size(); i++){
+        for (int i = 0; i < results.size(); i++) {
             System.out.println(results.get(i));
         }
 
@@ -278,7 +291,7 @@ public abstract class Game {
      * Implementation of this method depends on the Level.
      * @return Trash Array.
      */
-    public ArrayList<Trash> loadTrash(){
+    public ArrayList<Trash> loadTrash() {
         ArrayList<Trash> tmpTrash = new ArrayList<Trash>();
 
         try {
@@ -340,14 +353,18 @@ public abstract class Game {
         return false;
     }
 
+    /**
+     *
+     * @return ArrayList.
+     */
     public ArrayList<Integer> setRandomNumbers() {
         ArrayList<Integer> aux = new ArrayList<Integer>();
         Random randomGenerator = new Random();
         int counter = 0;
 
         while (counter < numObjects) {
-            int randomInt = randomGenerator.nextInt(199);
-            if(! aux.contains(randomInt)){
+            int randomInt = randomGenerator.nextInt(BOUND_INT);
+            if (!aux.contains(randomInt)) {
                 aux.add(randomInt);
                 counter++;
             }

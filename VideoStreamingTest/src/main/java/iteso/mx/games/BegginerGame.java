@@ -14,7 +14,7 @@ public final class BegginerGame extends Game {
     *Javadoc comment.
     */
     private static final int TIME_MULTIPLIER = 7;
-
+    /**timeLimit. */
     private int timeLimit = 0;
 
     /**
@@ -38,11 +38,11 @@ public final class BegginerGame extends Game {
 
         String aux = "";
 
-        if (userAnswer.equals("a"))
+        if (userAnswer.equals("a")) {
             aux = "Organico";
-        else if (userAnswer.equals("b"))
+        } else if (userAnswer.equals("b")) {
             aux = "Inorganico";
-        else{
+        } else {
             System.out.println("Please enter a valid option");
         }
 
