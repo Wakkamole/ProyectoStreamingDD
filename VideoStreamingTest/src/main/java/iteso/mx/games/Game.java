@@ -44,16 +44,17 @@ public abstract class Game {
      */
     private ArrayList<String> results = new ArrayList<String>();
 
+    private static final int TIME_MULTIPLIER = 5;
+
     /**
      *
      * @param game
      */
-    public void play(final Game game) {
 
     ArrayList<Integer> randomNumbers = new ArrayList<>();
+    public void play(final Game game) {
 
     //Driver
-
         game.prepareGame();
         trash = game.loadTrash();
         game.startGame();
@@ -73,7 +74,7 @@ public abstract class Game {
      * @param multiplier .
      */
     public void setTimeLimit(final int timeLimit1, final int multiplier) {
-        this.timeLimit = timeLimit1 * multiplier;
+        this.timeLimit = getNumObjects() * multiplier;
     }
 
     /**
@@ -182,10 +183,11 @@ public abstract class Game {
         System.out.println();
 
         //Setting time for game
-        //setTimeLimit(numObjects);
+        setTimeLimit(numObjects,TIME_MULTIPLIER);
 
         System.out.println("Game clock will be set to "
             + timeLimit + " seconds");
+
         System.out.println();
     }
 
@@ -197,9 +199,6 @@ public abstract class Game {
         Scanner input = new Scanner(System.in);
         System.out.println("Ready... Set... Go!");
 
-        //For now its 2, later is going to be numObjects
-        for (int i = 0; i < numObjects; i++) {
-
         randomNumbers = setRandomNumbers();
         //Timer Variables
         long timeMillis = System.currentTimeMillis();
@@ -207,7 +206,7 @@ public abstract class Game {
 
         long timeSpend = 0;
 
-        for(int i=0; i < numObjects; i++){
+        for (int i = 0; i < numObjects; i++) {
 
             /* Print trash object and menu option */
 
@@ -220,53 +219,50 @@ public abstract class Game {
             String answer = input.nextLine();
 
             boolean isCorrect = evalAnswer(
-                answer, trash.get(i).getValue().getValue());
-            System.out.println(isCorrect);
-
+                    answer, trash.get(i).getValue().getValue());
 
             /*in results array, write in "i" position
             the name of the trash and if he got it right or wrong*/
             if (isCorrect) {
-                score++;               
+                score++;
                 results.add("Trash object number " + i
-                + " known as " + trash.get(i).getName() + " was correct!");
+                        + " known as " + trash.get(i).getName() + " was correct!");
             } else {
                 results.add("Trash object number " + i
-                + " known as " + trash.get(i).getValue().getValue()
-                + " was incorrect");
+                        + " known as " + trash.get(i).getValue().getValue()
+                        + " was incorrect");
+            }
 
             long timeMillis2 = System.currentTimeMillis();
             long timeEndSeconds = TimeUnit.MILLISECONDS.toSeconds(timeMillis2);
 
             timeSpend = timeEndSeconds - timeStartSeconds;
-            if(timeSpend > timeLimit){
+
+            System.out.println();
+            System.out.println("timeLimit " + timeLimit + "time Spend " + timeSpend);
+            System.out.println();
+
+            if (timeSpend > timeLimit) {
                 System.out.println("You ran out of time :( ");
                 break;
-
             }
         }
 
-        /*at the end of the questions, get the total score
-        and divide it with numObjects to get a percentage and print it
-        */
-        printResults(results);
+
+        printResults();
         //System.out.println(results.get(0));
     }
 
-    /**
-     *
-     * @param results1 .
-     */
-    public void printResults(final ArrayList<String> results1) {
-        System.out.println("Your total score was: " + score
-            + " out of " + numObjects + " possible answers");
+
+    public void printResults() {
+
+        System.out.println("Your total score was: " +score + " out of " + numObjects + " possible answers");
         System.out.println();
 
 
-        for (int i = 0; i < results1.size(); i++) {
-            System.out.println(results1.get(i));
+        for (int i = 0; i < results.size(); i++){
+            System.out.println(results.get(i));
         }
-
 
         System.out.println();
         System.out.println("Extiting...");
@@ -282,7 +278,7 @@ public abstract class Game {
      * Implementation of this method depends on the Level.
      * @return Trash Array.
      */
-    public ArrayList<Trash> loadTrash() {
+    public ArrayList<Trash> loadTrash(){
         ArrayList<Trash> tmpTrash = new ArrayList<Trash>();
 
         try {

@@ -56,7 +56,7 @@ public class BegginerGameTest {
     int num = 25;
     Game.setNumObjects(num);
     int numObjects = Game.getNumObjects();
-    Game.setTimeLimit(numObjects);
+    Game.setTimeLimit(numObjects,10);
     assertEquals(num*7, Game.getTimeLimit());
   }
 

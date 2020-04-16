@@ -13,6 +13,7 @@ public final class MediumGame extends Game {
     *Javadoc comment.
     */
     private static final int TIME_MULTIPLIER = 5;
+    private int timeLimit;
 
     /**
     *Javadoc comment.
@@ -27,7 +28,7 @@ public final class MediumGame extends Game {
      * @param timeLimit .
      */
     public void setTimeLimit(final int timeLimit) {
-        super.setTimeLimit(timeLimit, TIME_MULTIPLIER);
+        this.timeLimit = timeLimit * TIME_MULTIPLIER;
     }
 
     @Override
@@ -49,7 +50,7 @@ public final class MediumGame extends Game {
             aux = "Inorganico";
         else if (userAnswer.equals("c"))
             aux = "Reciclable";
-        else
+        else{
             System.out.println("Please enter a valid option");
         }
 

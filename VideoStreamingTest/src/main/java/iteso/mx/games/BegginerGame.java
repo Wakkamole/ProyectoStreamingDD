@@ -15,6 +15,8 @@ public final class BegginerGame extends Game {
     */
     private static final int TIME_MULTIPLIER = 7;
 
+    private int timeLimit = 0;
+
     /**
      * JavaDoc Comment.
      */
@@ -23,13 +25,6 @@ public final class BegginerGame extends Game {
         super.setLevelString(L_STRING);
     }
 
-    /**
-     *
-     * @param timeLimit .
-     */
-    public void setTimeLimit(final int timeLimit) {
-        super.setTimeLimit(timeLimit, TIME_MULTIPLIER);
-    }
 
     @Override
     public void printAnswersMenu() {
@@ -47,8 +42,7 @@ public final class BegginerGame extends Game {
             aux = "Organico";
         else if (userAnswer.equals("b"))
             aux = "Inorganico";
-        else
-
+        else{
             System.out.println("Please enter a valid option");
         }
 

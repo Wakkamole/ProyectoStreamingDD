@@ -14,6 +14,7 @@ public final class AdvancedGame extends Game {
     *Javadoc comment.
     */
     private static final int TIME_MULTIPLIER = 3;
+    private int timeLimit;
 
     /**
     *Javadoc comment.
@@ -28,7 +29,7 @@ public final class AdvancedGame extends Game {
      * @param timeLimit .
      */
     public void setTimeLimit(final int timeLimit) {
-        super.setTimeLimit(timeLimit, TIME_MULTIPLIER);
+        this.timeLimit = timeLimit * TIME_MULTIPLIER;
     }
 
     @Override
