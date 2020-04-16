@@ -10,6 +10,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public abstract class Game {
 
@@ -112,8 +113,12 @@ public abstract class Game {
         System.out.println("Ready... Set... Go!");
 
         randomNumbers = setRandomNumbers();
+        //Timer Variables
+        long timeMillis = System.currentTimeMillis();
+        long timeStartSeconds = TimeUnit.MILLISECONDS.toSeconds(timeMillis);
 
-        //For now its 2, later is going to be numObjects
+        long timeSpend = 0;
+
         for(int i=0; i < numObjects; i++){
             /* Print trash object and menu option */
 
@@ -134,6 +139,15 @@ public abstract class Game {
             }
             else{
                 results.add("Trash object number " + i + " known as " + trash.get(randomNumbers.get(i)).getName() + " was incorrect");
+            }
+
+            long timeMillis2 = System.currentTimeMillis();
+            long timeEndSeconds = TimeUnit.MILLISECONDS.toSeconds(timeMillis2);
+
+            timeSpend = timeEndSeconds - timeStartSeconds;
+            if(timeSpend > timeLimit){
+                System.out.println("You ran out of time :( ");
+                break;
             }
         }
 
