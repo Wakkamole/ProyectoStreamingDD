@@ -12,7 +12,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.DriverManager;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public abstract class Game {
 
@@ -47,6 +49,11 @@ public abstract class Game {
      * @param game
      */
     public void play(final Game game) {
+
+    ArrayList<Integer> randomNumbers = new ArrayList<>();
+
+    //Driver
+
         game.prepareGame();
         trash = game.loadTrash();
         game.startGame();
@@ -192,31 +199,50 @@ public abstract class Game {
 
         //For now its 2, later is going to be numObjects
         for (int i = 0; i < numObjects; i++) {
+
+        randomNumbers = setRandomNumbers();
+        //Timer Variables
+        long timeMillis = System.currentTimeMillis();
+        long timeStartSeconds = TimeUnit.MILLISECONDS.toSeconds(timeMillis);
+
+        long timeSpend = 0;
+
+        for(int i=0; i < numObjects; i++){
+
             /* Print trash object and menu option */
 
-            System.out.println(trash.get(i).getName());
+            System.out.println(trash.get(randomNumbers.get(i)).getName());
             System.out.println();
             printAnswersMenu();
 
             //Capture user response
 
             String answer = input.nextLine();
+
             boolean isCorrect = evalAnswer(
                 answer, trash.get(i).getValue().getValue());
             System.out.println(isCorrect);
 
+
             /*in results array, write in "i" position
             the name of the trash and if he got it right or wrong*/
             if (isCorrect) {
-                score++;
-                /*results[1] = "Trash object number " + 0 + " known as "
-                + trash.get(0).getValue().getValue() + " was correct!";*/
+                score++;               
                 results.add("Trash object number " + i
                 + " known as " + trash.get(i).getName() + " was correct!");
             } else {
                 results.add("Trash object number " + i
                 + " known as " + trash.get(i).getValue().getValue()
                 + " was incorrect");
+
+            long timeMillis2 = System.currentTimeMillis();
+            long timeEndSeconds = TimeUnit.MILLISECONDS.toSeconds(timeMillis2);
+
+            timeSpend = timeEndSeconds - timeStartSeconds;
+            if(timeSpend > timeLimit){
+                System.out.println("You ran out of time :( ");
+                break;
+
             }
         }
 
@@ -267,7 +293,7 @@ public abstract class Game {
                 host, uName, uPass);
 
             Statement stat = con.createStatement();
-            String query = "SELECT * FROM project.trash";
+            String query = "SELECT * FROM project.trash2";
             ResultSet rs = stat.executeQuery(query);
 
             while (rs.next()) {
@@ -316,5 +342,20 @@ public abstract class Game {
     public boolean evalAnswer(
         final String userAnswer, final String trashValue) {
         return false;
+    }
+
+    public ArrayList<Integer> setRandomNumbers() {
+        ArrayList<Integer> aux = new ArrayList<Integer>();
+        Random randomGenerator = new Random();
+        int counter = 0;
+
+        while (counter < numObjects) {
+            int randomInt = randomGenerator.nextInt(199);
+            if(! aux.contains(randomInt)){
+                aux.add(randomInt);
+                counter++;
+            }
+        }
+        return aux;
     }
 }

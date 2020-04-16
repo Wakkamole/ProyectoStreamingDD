@@ -33,13 +33,13 @@ public final class AdvancedGame extends Game {
 
     @Override
     public void printAnswersMenu() {
-        System.out.println("  a) Organic");
-        System.out.println("  b) Paper");
-        System.out.println("  c) Glass");
+        System.out.println("  a) Organico");
+        System.out.println("  b) Papel");
+        System.out.println("  c) Vidrio");
         System.out.println("  d) Metal");
-        System.out.println("  e) Plastic");
-        System.out.println("  f) Textile");
-        System.out.println("  g) Tech Trash");
+        System.out.println("  e) Plastico");
+        System.out.println("  f) Textil");
+        System.out.println("  g) Basura Tecnologica");
     }
 
     @Override
@@ -47,23 +47,24 @@ public final class AdvancedGame extends Game {
         final String userAnswer, final String trashValue) {
 
         String aux = "";
-        if (userAnswer.equals("a")) {
-            aux = "Organic";
-        } else if (userAnswer.equals("b")) {
-            aux = "Paper";
-        } else if (userAnswer.equals("c")) {
-            aux = "Glass";
-        } else if (userAnswer.equals("d")) {
+
+        if (userAnswer.equals("a"))
+            aux = "Organico";
+        else if (userAnswer.equals("b"))
+            aux = "Papel";
+        else if (userAnswer.equals("c"))
+            aux = "Vidrio";
+        else if (userAnswer.equals("d"))
             aux = "Metal";
-        } else if (userAnswer.equals("e")) {
-            aux = "Plastic";
-        } else if (userAnswer.equals("f")) {
-            aux = "Textile";
-        } else if (userAnswer.equals("g")) {
-            aux = "Tech Trash";
-        } else {
-            System.out.println("Please enter a valid option");
-        }
+        else if (userAnswer.equals("e"))
+            aux = "Plastico";
+        else if (userAnswer.equals("f"))
+            aux = "Textil";
+        else if (userAnswer.equals("g"))
+            aux = "Basura Tecnologica";
+        else
+            System.out.println("Ingresa una opcion valida");
+
 
         boolean answer = trashValue.equals(aux);
         return answer;

@@ -1,4 +1,4 @@
 # StreamingDS-JO-VC
 
 Software Design Spring 2020 Project:
-Minigame where user chooses between good and bad content depending on level
+Minigame where user selects garbage type according to different classifications that are defined by selected level. Project was changed to Project proposal #1

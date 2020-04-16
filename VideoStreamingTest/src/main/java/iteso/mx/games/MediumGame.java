@@ -32,9 +32,9 @@ public final class MediumGame extends Game {
 
     @Override
     public void printAnswersMenu() {
-        System.out.println("  a) Organic");
-        System.out.println("  b) Inorganic");
-        System.out.println("  c) Recyclable");
+        System.out.println("  a) Organico");
+        System.out.println("  b) Inorganico");
+        System.out.println("  c) Reciclable");
     }
 
     @Override
@@ -42,13 +42,14 @@ public final class MediumGame extends Game {
         final String userAnswer, final String trashValue) {
 
         String aux = "";
-        if (userAnswer.equals("a")) {
-            aux = "Organic";
-        } else if (userAnswer.equals("b")) {
-            aux = "Inorganic";
-        } else if (userAnswer.equals("c")) {
-            aux = "Recyclable";
-        } else {
+
+        if (userAnswer.equals("a"))
+            aux = "Organico";
+        else if (userAnswer.equals("b"))
+            aux = "Inorganico";
+        else if (userAnswer.equals("c"))
+            aux = "Reciclable";
+        else
             System.out.println("Please enter a valid option");
         }
 
