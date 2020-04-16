@@ -7,6 +7,10 @@ public final class BegginerGame extends Game {
     */
     private static final int LEVEL = 1;
     /**
+     * Level string constant.
+     */
+    private static final String L_STRING = "Beginner";
+    /**
     *Javadoc comment.
     */
     private static final int TIME_MULTIPLIER = 7;
@@ -15,13 +19,16 @@ public final class BegginerGame extends Game {
      * JavaDoc Comment.
      */
     public BegginerGame() {
-        level = LEVEL;
-        levelString = "Beginner";
+        super.setLevel(LEVEL);
+        super.setLevelString(L_STRING);
     }
 
-    @Override
+    /**
+     *
+     * @param timeLimit .
+     */
     public void setTimeLimit(final int timeLimit) {
-        this.timeLimit = timeLimit * TIME_MULTIPLIER;
+        super.setTimeLimit(timeLimit, TIME_MULTIPLIER);
     }
 
     @Override

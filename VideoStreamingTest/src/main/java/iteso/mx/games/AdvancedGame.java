@@ -7,6 +7,10 @@ public final class AdvancedGame extends Game {
     */
     private static final int LEVEL = 3;
     /**
+     * Level string constant.
+     */
+    private static final String L_STRING = "Advanced";
+    /**
     *Javadoc comment.
     */
     private static final int TIME_MULTIPLIER = 3;
@@ -15,13 +19,16 @@ public final class AdvancedGame extends Game {
     *Javadoc comment.
     */
     public AdvancedGame() {
-        level = LEVEL;
-        levelString = "Advanced";
+        super.setLevel(LEVEL);
+        super.setLevelString(L_STRING);
     }
 
-    @Override
+    /**
+     *
+     * @param timeLimit .
+     */
     public void setTimeLimit(final int timeLimit) {
-        this.timeLimit = timeLimit * TIME_MULTIPLIER;
+        super.setTimeLimit(timeLimit, TIME_MULTIPLIER);
     }
 
     @Override

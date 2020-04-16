@@ -23,15 +23,15 @@ public abstract class Game {
     /** FIFTY. */
     private static final int FIFTY = 50;
     /** tiemLimit. */
-    int timeLimit;
+    private int timeLimit;
     /** numObjects. */
     private int numObjects;
     /** score. */
     private int score;
     /** level. */
-    int level;
+    private int level;
     /** levelString. */
-    String levelString;
+    private String levelString;
 
     /**
      * Trash Array.
@@ -63,9 +63,10 @@ public abstract class Game {
     /**
      *
      * @param timeLimit1 .
+     * @param multiplier .
      */
-    public void setTimeLimit(final int timeLimit1) {
-        this.timeLimit = timeLimit1;
+    public void setTimeLimit(final int timeLimit1, final int multiplier) {
+        this.timeLimit = timeLimit1 * multiplier;
     }
 
     /**
@@ -117,6 +118,22 @@ public abstract class Game {
     }
 
     /**
+     *
+     * @return levelString.
+     */
+    public String getLevelString() {
+        return levelString;
+    }
+
+    /**
+     *
+     * @param levelString1 .
+     */
+    public void setLevelString(final String levelString1) {
+        this.levelString = levelString1;
+    }
+
+    /**
      * Implementation of this method depends
      * on the level.
      */
@@ -158,7 +175,7 @@ public abstract class Game {
         System.out.println();
 
         //Setting time for game
-        setTimeLimit(numObjects);
+        //setTimeLimit(numObjects);
 
         System.out.println("Game clock will be set to "
             + timeLimit + " seconds");

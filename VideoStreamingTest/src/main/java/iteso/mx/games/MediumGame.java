@@ -6,6 +6,10 @@ public final class MediumGame extends Game {
     */
     private static final int LEVEL = 2;
     /**
+     * Level string constant.
+     */
+    private static final String L_STRING = "Intermediate";
+    /**
     *Javadoc comment.
     */
     private static final int TIME_MULTIPLIER = 5;
@@ -14,13 +18,16 @@ public final class MediumGame extends Game {
     *Javadoc comment.
     */
     public MediumGame() {
-        level = LEVEL;
-        levelString = "Intermediate";
+        super.setLevel(LEVEL);
+        super.setLevelString(L_STRING);
     }
 
-    @Override
+    /**
+     *
+     * @param timeLimit .
+     */
     public void setTimeLimit(final int timeLimit) {
-        this.timeLimit = timeLimit * TIME_MULTIPLIER;
+        super.setTimeLimit(timeLimit, TIME_MULTIPLIER);
     }
 
     @Override
