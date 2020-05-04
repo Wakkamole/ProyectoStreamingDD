@@ -1,5 +1,10 @@
+iteso\mx\games\BegginerGame.class
+iteso\mx\games\AdvancedGame.class
 iteso\mx\trashLevels\TrashLevelBegginer.class
+iteso\mx\trashLevels\TrashLevelAdvanced.class
 iteso\mx\trash\Trash.class
+iteso\mx\games\MediumGame.class
+iteso\mx\games\Game.class
 iteso\mx\App.class
 iteso\mx\trashLevels\TrashLevel.class
 iteso\mx\trashLevels\TrashLevelIntermediate.class

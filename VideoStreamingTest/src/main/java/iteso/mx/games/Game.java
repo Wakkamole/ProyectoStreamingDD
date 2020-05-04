@@ -249,7 +249,7 @@ public abstract class Game {
 
             System.out.println();
             System.out.println("timeLimit "
-                + timeLimit + "time Spend " + timeSpend);
+                + timeLimit + " Time Spend " + timeSpend);
             System.out.println();
 
             if (timeSpend > timeLimit) {
