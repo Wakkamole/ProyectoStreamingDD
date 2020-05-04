@@ -1,42 +1,37 @@
 package iteso.mx.trash;
 
-import iteso.mx.trashLevels.TrashLevel;
 
-public final class Trash {
+import java.util.ArrayList;
+
+public interface Trash {
     /** String name. */
-    private String name;
+    String name = "";
     /** TrashLevel value. */
-    private TrashLevel value;
+    String value = null;
 
     /**
      *
      * @return name.
      */
-    public String getName() {
-        return name;
-    }
+    public String getName();
 
     /**
      *
      * @param name1 .
      */
-    public void setName(final String name1) {
-        this.name = name1;
-    }
+    public void setName(final String name1);
 
     /**
      *
      * @return value.
      */
-    public TrashLevel getValue() {
-        return value;
-    }
+    public String getValue();
 
     /**
      *
      * @param value1 .
      */
-    public void setValue(final TrashLevel value1) {
-        this.value = value1;
-    }
+    public void setValue(final String value1);
+
+    public ArrayList<Trash> loadTrash();
 }

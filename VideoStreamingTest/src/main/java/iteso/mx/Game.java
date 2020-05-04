@@ -1,16 +1,13 @@
-package iteso.mx.games;
+package iteso.mx;
 
+import iteso.mx.games.result.SingletonGameResult;
+import iteso.mx.trash.AdvancedTrash;
+import iteso.mx.trash.BeginnerTrash;
+import iteso.mx.trash.IntermediateTrash;
 import iteso.mx.trash.Trash;
-import iteso.mx.trashLevels.TrashLevel;
-import iteso.mx.trashLevels.TrashLevelAdvanced;
-import iteso.mx.trashLevels.TrashLevelBegginer;
-import iteso.mx.trashLevels.TrashLevelIntermediate;
 
-import java.sql.Connection;
-import java.sql.Statement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.DriverManager;
+
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -37,6 +34,8 @@ public abstract class Game {
     /** levelString. */
     private String levelString;
 
+    private static Trash trashFactory;
+
     /**
      * Trash Array.
      */
@@ -56,17 +55,8 @@ public abstract class Game {
 
     private ArrayList<Integer> randomNumbers = new ArrayList<>();
 
-    /**
-     *
-     * @param game .
-     */
-    public void play(final Game game) {
 
-    //Driver
-        game.prepareGame();
-        trash = game.loadTrash();
-        game.startGame();
-    }
+
 
     /**
      *
@@ -101,21 +91,6 @@ public abstract class Game {
         this.numObjects = numObjects1;
     }
 
-    /**
-     *
-     * @return score.
-     */
-    public int getScore() {
-        return score;
-    }
-
-    /**
-     *
-     * @param score1 .
-     */
-    public void setScore(final int score1) {
-        this.score = score1;
-    }
 
     /**
      *
@@ -131,14 +106,6 @@ public abstract class Game {
      */
     public void setLevel(final int level1) {
         this.level = level1;
-    }
-
-    /**
-     *
-     * @return levelString.
-     */
-    public String getLevelString() {
-        return levelString;
     }
 
     /**
@@ -202,7 +169,7 @@ public abstract class Game {
     /**
      * StartGame.
      */
-    public void startGame() {
+    public void startGame(ArrayList<Trash> trash) {
 
         Scanner input = new Scanner(System.in);
         System.out.println("Ready... Set... Go!");
@@ -214,12 +181,16 @@ public abstract class Game {
 
         long timeSpend = 0;
 
+        SingletonGameResult gameResult = SingletonGameResult.getInstance("Game Result");
         for (int i = 0; i < numObjects; i++) {
 
             /* Print trash object and menu option */
 
             System.out.println(trash.get(randomNumbers.get(i)).getName());
+
             System.out.println();
+
+            //Esto puede ser strategy
             printAnswersMenu();
 
             //Capture user response
@@ -227,20 +198,22 @@ public abstract class Game {
             String answer = input.nextLine();
 
             boolean isCorrect = evalAnswer(
-                    answer, trash.get(i).getValue().getValue());
+                    answer, trash.get(i).getValue());
 
             /*in results array, write in "i" position
             the name of the trash and if he got it right or wrong*/
+
             if (isCorrect) {
-                score++;
-                results.add("Trash object number " + i
-                        + " known as " + trash.get(i).getName()
+                gameResult.score ++;
+                gameResult.results.add("Trash object number " + i
+                        + " known as " + trash.get(randomNumbers.get(i)).getName()
                         + " was correct!");
             } else {
-                results.add("Trash object number " + i
-                        + " known as " + trash.get(i).getValue().getValue()
+                gameResult.results.add("Trash object number " + i
+                        + " known as " + trash.get(randomNumbers.get(i)).getName()
                         + " was incorrect");
             }
+
 
             long timeMillis2 = System.currentTimeMillis();
             long timeEndSeconds = TimeUnit.MILLISECONDS.toSeconds(timeMillis2);
@@ -258,28 +231,11 @@ public abstract class Game {
             }
         }
 
-
-        printResults();
+        //gameResult.printResults();
+        //printResults();
         //System.out.println(results.get(0));
     }
 
-    /**
-     * print results.
-     */
-    public void printResults() {
-
-        System.out.println("Your total score was: "
-            + score + " out of " + numObjects + " possible answers");
-        System.out.println();
-
-
-        for (int i = 0; i < results.size(); i++) {
-            System.out.println(results.get(i));
-        }
-
-        System.out.println();
-        System.out.println("Extiting...");
-    }
 
     /**
      * printAnswers.
@@ -287,60 +243,6 @@ public abstract class Game {
     public void printAnswersMenu() {
     }
 
-    /**
-     * Implementation of this method depends on the Level.
-     * @return Trash Array.
-     */
-    public ArrayList<Trash> loadTrash() {
-        ArrayList<Trash> tmpTrash = new ArrayList<Trash>();
-
-        try {
-            String host = "jdbc:mysql://localhost:3306/project";
-            String uName = "root";
-            String uPass = "welcome1";
-            Connection con = DriverManager.getConnection(
-                host, uName, uPass);
-
-            Statement stat = con.createStatement();
-            String query = "SELECT * FROM project.trash2";
-            ResultSet rs = stat.executeQuery(query);
-
-            while (rs.next()) {
-
-                //int id = rs.getInt("ID");
-                String name = rs.getString("Name");
-                String value = rs.getString(levelString + "Value");
-
-                Trash tmpTrashObject = new Trash();
-                tmpTrashObject.setName(name);
-
-                if (level == 1) {
-                    TrashLevel trashLevelTmp = new TrashLevelBegginer();
-                    trashLevelTmp.setValue(value);
-                    tmpTrashObject.setValue(trashLevelTmp);
-                } else if (level == 2) {
-                    TrashLevel trashLevelTmp = new TrashLevelIntermediate();
-                    trashLevelTmp.setValue(value);
-                    tmpTrashObject.setValue(trashLevelTmp);
-                } else {
-                    TrashLevel trashLevelTmp = new TrashLevelAdvanced();
-                    trashLevelTmp.setValue(value);
-                    tmpTrashObject.setValue(trashLevelTmp);
-                }
-
-
-                tmpTrash.add(tmpTrashObject);
-            }
-
-        } catch (SQLException err) {
-            System.out.println(err.getMessage());
-        }
-
-        System.out.println(
-            "Succesfully loaded all the objects from the database");
-
-        return tmpTrash;
-    }
 
     /**
      *
