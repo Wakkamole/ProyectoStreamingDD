@@ -1,6 +1,6 @@
 package iteso.mx;
 
-import iteso.mx.trashLevels.TrashLevelIntermediate;
+
 
 import org.junit.Test;
 import org.junit.Before;
@@ -8,17 +8,19 @@ import static org.junit.Assert.*;
 
 public class TrashLevelIntermediateTest {
 
-  TrashLevelIntermediate TrashLevelValue;
+  //TrashLevelIntermediate TrashLevelValue;
 
-  @Before
+ /* @Before
   public void setUp(){
     TrashLevelValue = new TrashLevelIntermediate();
-  }
+  }*/
 
+/*
   @Test
   public void testTrashLevelValue(){
     TrashLevelValue.setValue("Intermediate");
     assertEquals("Intermediate", TrashLevelValue.getValue());
   }
+*/
 
 }

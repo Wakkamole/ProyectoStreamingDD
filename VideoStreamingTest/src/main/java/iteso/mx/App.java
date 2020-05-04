@@ -1,9 +1,7 @@
 package iteso.mx;
 
-import iteso.mx.games.AdvancedGame;
-import iteso.mx.games.BegginerGame;
-import iteso.mx.games.Game;
-import iteso.mx.games.MediumGame;
+import iteso.mx.facade.GameFacade;
+
 import java.util.Scanner;
 
 public class App {
@@ -14,9 +12,11 @@ public class App {
     public static void main(final String[] args) {
         new App().run(args);
     }
+
     private void run(final String[] args) {
         Boolean quit = false;
         Scanner input = new Scanner(System.in);
+        GameFacade gameFacade = new GameFacade();
 
 
         while (!quit) {
@@ -28,18 +28,8 @@ public class App {
 
             String option = input.nextLine();
 
-            if (option.equals("a")) {
-                Game game = new BegginerGame();
-                game.play(game);
-            } else if (option.equals("b")) {
-                Game game = new MediumGame();
-                game.play(game);
-            } else if (option.equals("c")) {
-                Game game = new AdvancedGame();
-                game.play(game);
-            } else {
-                System.out.println("Invalid input, try again");
-            }
+            //FACADE Implementation
+            gameFacade.StartGame(option);
 
             System.out.println();
             System.out.println(

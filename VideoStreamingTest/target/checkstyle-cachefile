@@ -1,18 +1,6 @@
-#Thu Apr 16 14:15:34 CDT 2020
-configuration*?=1A75C30B61F8A3194DB0E61B342184EE22E00C93
-D\:\\Documents\\ITESO\\Dise\u00F1o\ de\ Software\\Repositorios\\StreamingDS-JO-VC\\VideoStreamingTest\\src\\main\\java\\iteso\\mx\\games\\package-info.java=1587062256583
-D\:\\Documents\\ITESO\\Dise\u00F1o\ de\ Software\\Repositorios\\StreamingDS-JO-VC\\VideoStreamingTest\\src\\main\\java\\iteso\\mx\\App.java=1587062256562
-D\:\\Documents\\ITESO\\Dise\u00F1o\ de\ Software\\Repositorios\\StreamingDS-JO-VC\\VideoStreamingTest\\src\\main\\java\\iteso\\mx\\games\\BegginerGame.java=1587064427921
-D\:\\Documents\\ITESO\\Dise\u00F1o\ de\ Software\\Repositorios\\StreamingDS-JO-VC\\VideoStreamingTest\\src\\main\\java\\iteso\\mx\\trashLevels\\TrashLevelBegginer.java=1587062256604
-D\:\\Documents\\ITESO\\Dise\u00F1o\ de\ Software\\Repositorios\\StreamingDS-JO-VC\\VideoStreamingTest\\src\\main\\java\\iteso\\mx\\trashLevels\\package-info.java=1587062256610
-D\:\\Documents\\ITESO\\Dise\u00F1o\ de\ Software\\Repositorios\\StreamingDS-JO-VC\\VideoStreamingTest\\src\\main\\java\\iteso\\mx\\trash\\Trash.java=1587062256590
-D\:\\Documents\\ITESO\\Dise\u00F1o\ de\ Software\\Repositorios\\StreamingDS-JO-VC\\VideoStreamingTest\\src\\main\\java\\iteso\\mx\\games\\AdvancedGame.java=1587064494594
-D\:\\Documents\\ITESO\\Dise\u00F1o\ de\ Software\\Repositorios\\StreamingDS-JO-VC\\VideoStreamingTest\\src\\main\\java\\iteso\\mx\\package-info.java=1587062256586
-D\:\\Documents\\ITESO\\Dise\u00F1o\ de\ Software\\Repositorios\\StreamingDS-JO-VC\\VideoStreamingTest\\src\\main\\java\\iteso\\mx\\trashLevels\\TrashLevelAdvanced.java=1587062256600
-module-resource*?\:checkstyle-xpath-suppressions.xml=9D8B453EE078487E6F8F4CD06028824DC1A88A94
-D\:\\Documents\\ITESO\\Dise\u00F1o\ de\ Software\\Repositorios\\StreamingDS-JO-VC\\VideoStreamingTest\\src\\main\\java\\iteso\\mx\\trashLevels\\TrashLevelIntermediate.java=1587062256607
-module-resource*?\:checkstyle-suppressions.xml=1FA6A35E4C3881544DBF7E92DAF2F685945350A6
-D\:\\Documents\\ITESO\\Dise\u00F1o\ de\ Software\\Repositorios\\StreamingDS-JO-VC\\VideoStreamingTest\\src\\main\\java\\iteso\\mx\\games\\MediumGame.java=1587064497146
-D\:\\Documents\\ITESO\\Dise\u00F1o\ de\ Software\\Repositorios\\StreamingDS-JO-VC\\VideoStreamingTest\\src\\main\\java\\iteso\\mx\\trash\\package-info.java=1587062256592
-D\:\\Documents\\ITESO\\Dise\u00F1o\ de\ Software\\Repositorios\\StreamingDS-JO-VC\\VideoStreamingTest\\src\\main\\java\\iteso\\mx\\trashLevels\\TrashLevel.java=1587062256598
-D\:\\Documents\\ITESO\\Dise\u00F1o\ de\ Software\\Repositorios\\StreamingDS-JO-VC\\VideoStreamingTest\\src\\main\\java\\iteso\\mx\\games\\Game.java=1587064242208
+#Thu Apr 16 18:49:36 CDT 2020
+C\:\\Users\\javochoa\\Documents\\ITESO\\DS\\Project\\StreamingDS-JO-VC\\VideoStreamingTest\\src\\main\\java\\iteso\\mx\\trash\\package-info.java=1587058260448
+C\:\\Users\\javochoa\\Documents\\ITESO\\DS\\Project\\StreamingDS-JO-VC\\VideoStreamingTest\\src\\main\\java\\iteso\\mx\\games\\package-info.java=1587058258819
+C\:\\Users\\javochoa\\Documents\\ITESO\\DS\\Project\\StreamingDS-JO-VC\\VideoStreamingTest\\src\\main\\java\\iteso\\mx\\trashLevels\\package-info.java=1587058257635
+C\:\\Users\\javochoa\\Documents\\ITESO\\DS\\Project\\StreamingDS-JO-VC\\VideoStreamingTest\\src\\main\\java\\iteso\\mx\\package-info.java=1587058259652
+configuration*?=5549B420FCCDEBF2D50508671CF1E0F8ECC2D0EE

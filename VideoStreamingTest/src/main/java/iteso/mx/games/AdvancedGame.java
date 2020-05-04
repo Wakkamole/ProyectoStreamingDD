@@ -1,5 +1,7 @@
 package iteso.mx.games;
 
+import iteso.mx.Game;
+
 public final class AdvancedGame extends Game {
 
     /**
