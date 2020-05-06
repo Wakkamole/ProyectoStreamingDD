@@ -56,8 +56,6 @@ public abstract class Game {
     private ArrayList<Integer> randomNumbers = new ArrayList<>();
 
 
-
-
     /**
      *
      * @return timeLimit.
