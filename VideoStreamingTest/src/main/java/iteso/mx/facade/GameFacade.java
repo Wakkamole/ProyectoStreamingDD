@@ -17,21 +17,23 @@ public class GameFacade {
 
     private static Trash trashFactory;
     private ArrayList<Trash> trash;
+    Game game;
 
     public void StartGame(String option){
 
         if (option.equals("a")) {
-            Game game = new BegginerGame();
+            game = new BegginerGame();
             playGame(game);
         } else if (option.equals("b")) {
-            Game game = new MediumGame();
+            game = new MediumGame();
             playGame(game);
         } else if (option.equals("c")) {
-            Game game = new AdvancedGame();
+            game = new AdvancedGame();
             playGame(game);
         } else {
             System.out.println("Invalid input, try again");
         }
+
     }
 
     public void playGame(Game game){
