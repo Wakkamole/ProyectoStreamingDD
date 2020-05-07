@@ -1,7 +1,7 @@
 package iteso.mx;
 
 import iteso.mx.games.*;
-//import iteso.mx.trashLevels.TrashLevelIntermediate;
+import iteso.mx.trash.IntermediateTrash;
 
 import org.junit.Test;
 import org.junit.Before;
@@ -10,62 +10,80 @@ import static org.junit.Assert.*;
 public class MediumGameTest {
 
   MediumGame Game;
-  //TrashLevelIntermediate mockedTrashLevel;
+  IntermediateTrash mockedIntermediateTrash;
   
   @Before
   public void setUp() {
- /*   Game = new MediumGame();
-    mockedTrashLevel = new TrashLevelIntermediate();*/
+    Game = new MediumGame();
+    mockedIntermediateTrash = new IntermediateTrash();
   }
 
   @Test
-  public void testEvalAnswerACorrect(){
-   /* mockedTrashLevel.setValue("Organico");
-    assertTrue(Game.evalAnswer("a", mockedTrashLevel.getValue()));    */
+  public void testEvalAnswerACorrect() {
+    mockedIntermediateTrash.setValue("Organico");
+    assertTrue(Game.evalAnswer("a",
+            mockedIntermediateTrash.getValue()));    
   }
 
   @Test
-  public void testEvalAnswerAincorrect(){
-    /*mockedTrashLevel.setValue("Organico");
-    assertFalse(Game.evalAnswer("b", mockedTrashLevel.getValue()));
-    assertFalse(Game.evalAnswer("c", mockedTrashLevel.getValue()));*/
+  public void testEvalAnswerAIncorrect() {
+    mockedIntermediateTrash.setValue("Organico");
+    assertFalse(Game.evalAnswer("b",
+            mockedIntermediateTrash.getValue()));
+    assertFalse(Game.evalAnswer("c",
+            mockedIntermediateTrash.getValue()));
   }
 
   @Test
-  public void testEvalAnswerBCorrect(){
-   /* mockedTrashLevel.setValue("Inorganico");
-    assertTrue(Game.evalAnswer("b", mockedTrashLevel.getValue()));  */
+  public void testEvalAnswerBCorrect() {
+    mockedIntermediateTrash.setValue("Inorganico");
+    assertTrue(Game.evalAnswer("b",
+            mockedIntermediateTrash.getValue()));  
   }
 
   @Test
-  public void testEvalAnswerBincorrect(){
-    /*mockedTrashLevel.setValue("Inorganico");
-    assertFalse(Game.evalAnswer("a", mockedTrashLevel.getValue()));
-    assertFalse(Game.evalAnswer("c", mockedTrashLevel.getValue()));*/
+  public void testEvalAnswerBIncorrect() {
+    mockedIntermediateTrash.setValue("Inorganico");
+    assertFalse(Game.evalAnswer("a",
+            mockedIntermediateTrash.getValue()));
+    assertFalse(Game.evalAnswer("c",
+            mockedIntermediateTrash.getValue()));
   }
 
   @Test
-  public void testEvalAnswerCCorrect(){
-    /*mockedTrashLevel.setValue("Reciclable");
-    assertTrue(Game.evalAnswer("c", mockedTrashLevel.getValue()));    */
+  public void testEvalAnswerCCorrect() {
+    mockedIntermediateTrash.setValue("Reciclable");
+    assertTrue(Game.evalAnswer("c",
+            mockedIntermediateTrash.getValue()));    
   }
 
   @Test
-  public void testEvalAnswerCincorrect(){
-   /* mockedTrashLevel.setValue("Reciclable");
-    assertFalse(Game.evalAnswer("a", mockedTrashLevel.getValue()));
-    assertFalse(Game.evalAnswer("b", mockedTrashLevel.getValue()));*/
+  public void testEvalAnswerCIncorrect() {
+    mockedIntermediateTrash.setValue("Reciclable");
+    assertFalse(Game.evalAnswer("a",
+            mockedIntermediateTrash.getValue()));
+    assertFalse(Game.evalAnswer("b",
+            mockedIntermediateTrash.getValue()));
   }
 
   @Test
-  public void testNumObjects(){
+  public void testNumObjects() {
     int num = 25;
     Game.setNumObjects(num);
     assertEquals(25, Game.getNumObjects());
   }
 
   @Test
-  public void testTimeLimit(){
+  public void testSetTimeLimit() {
+    int num = 25;
+    Game.setNumObjects(num);
+    int numObjects = Game.getNumObjects();
+    Game.setTimeLimit(numObjects,5);
+    assertTrue(Game.getTimeLimit() > 0);
+  }
+
+  @Test
+  public void testGetTimeLimit() {
     int num = 25;
     Game.setNumObjects(num);
     int numObjects = Game.getNumObjects();
@@ -74,8 +92,21 @@ public class MediumGameTest {
   }
 
   @Test
-  public void testLevel(){
+  public void testLevel() {
     assertEquals(2, Game.getLevel());
+  }
+
+  @Test
+  public void testLevelString() {
+    assertEquals("Intermediate",
+            Game.getLevelString());
+  }
+
+  @Test
+  public void setRandomNumbersTest() {
+    int num = 25;
+    Game.setNumObjects(num);
+    assertTrue(Game.setRandomNumbers().size() > 0);
   }
 
 }

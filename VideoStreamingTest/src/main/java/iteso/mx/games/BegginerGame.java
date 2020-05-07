@@ -17,7 +17,7 @@ public final class BegginerGame extends Game {
     */
     private static final int TIME_MULTIPLIER = 7;
     /**timeLimit. */
-    private int timeLimit = 0;
+    private int timeLimit;
 
     /**
      * JavaDoc Comment.
@@ -27,6 +27,13 @@ public final class BegginerGame extends Game {
         super.setLevelString(L_STRING);
     }
 
+    /**
+     *
+     * @param timeLimit1 .
+     */
+    public void setTimeLimit(final int timeLimit1) {
+        this.timeLimit = timeLimit1 * TIME_MULTIPLIER;
+    }
 
     @Override
     public void printAnswersMenu() {

@@ -3,6 +3,7 @@ package iteso.mx.games;
 import iteso.mx.Game;
 
 public final class MediumGame extends Game {
+
     /**
     *Javadoc comment.
     */

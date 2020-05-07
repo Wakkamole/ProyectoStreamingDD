@@ -3,35 +3,42 @@ package iteso.mx.trash;
 
 import java.util.ArrayList;
 
+/**
+ * Trash interface.
+ */
 public interface Trash {
     /** String name. */
-    String name = "";
+    String NAME = "";
     /** TrashLevel value. */
-    String value = null;
+    String VALUE = null;
 
     /**
      *
      * @return name.
      */
-    public String getName();
+    String getName();
 
     /**
      *
      * @param name1 .
      */
-    public void setName(final String name1);
+    void setName(String name1);
 
     /**
      *
      * @return value.
      */
-    public String getValue();
+    String getValue();
 
     /**
      *
      * @param value1 .
      */
-    public void setValue(final String value1);
+    void setValue(String value1);
 
-    public ArrayList<Trash> loadTrash();
+    /**
+     *
+     * @return .
+     */
+    ArrayList<Trash> loadTrash();
 }

@@ -29,7 +29,7 @@ public class App {
             String option = input.nextLine();
 
             //FACADE Implementation
-            gameFacade.StartGame(option);
+            gameFacade.startGame(option);
 
             System.out.println();
             System.out.println(

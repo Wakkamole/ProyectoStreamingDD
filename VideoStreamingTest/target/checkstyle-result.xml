@@ -1,43 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<checkstyle version="8.19">
-<file name="C:\Users\javochoa\Documents\ITESO\DS\Project\StreamingDS-JO-VC\VideoStreamingTest\src\main\java\iteso\mx\App.java">
-<error line="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
-<error line="14" column="44" severity="error" message="Expected @param tag for &apos;args&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
-<error line="17" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<checkstyle version="8.29">
+<file name="D:\Documents\ITESO\Diseño de Software\Repositorios\StreamingDS-JO-VC\VideoStreamingTest\src\main\java\iteso\mx\games\result\SingletonGameResult.java">
+<error line="8" column="16" severity="error" message="Variable &apos;score&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="10" column="16" severity="error" message="Variable &apos;numObjects&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="12" column="19" severity="error" message="Variable &apos;value&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="14" column="30" severity="error" message="Variable &apos;results&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
 </file>
-<file name="C:\Users\javochoa\Documents\ITESO\DS\Project\StreamingDS-JO-VC\VideoStreamingTest\src\main\java\iteso\mx\games\AdvancedGame.java">
-<error line="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
-</file>
-<file name="C:\Users\javochoa\Documents\ITESO\DS\Project\StreamingDS-JO-VC\VideoStreamingTest\src\main\java\iteso\mx\games\BegginerGame.java">
-<error line="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
-</file>
-<file name="C:\Users\javochoa\Documents\ITESO\DS\Project\StreamingDS-JO-VC\VideoStreamingTest\src\main\java\iteso\mx\games\Game.java">
-<error line="19" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
-</file>
-<file name="C:\Users\javochoa\Documents\ITESO\DS\Project\StreamingDS-JO-VC\VideoStreamingTest\src\main\java\iteso\mx\games\MediumGame.java">
-<error line="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
-</file>
-<file name="C:\Users\javochoa\Documents\ITESO\DS\Project\StreamingDS-JO-VC\VideoStreamingTest\src\main\java\iteso\mx\games\package-info.java">
-</file>
-<file name="C:\Users\javochoa\Documents\ITESO\DS\Project\StreamingDS-JO-VC\VideoStreamingTest\src\main\java\iteso\mx\package-info.java">
-</file>
-<file name="C:\Users\javochoa\Documents\ITESO\DS\Project\StreamingDS-JO-VC\VideoStreamingTest\src\main\java\iteso\mx\trash\package-info.java">
-</file>
-<file name="C:\Users\javochoa\Documents\ITESO\DS\Project\StreamingDS-JO-VC\VideoStreamingTest\src\main\java\iteso\mx\trash\Trash.java">
-<error line="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
-</file>
-<file name="C:\Users\javochoa\Documents\ITESO\DS\Project\StreamingDS-JO-VC\VideoStreamingTest\src\main\java\iteso\mx\trashLevels\package-info.java">
-</file>
-<file name="C:\Users\javochoa\Documents\ITESO\DS\Project\StreamingDS-JO-VC\VideoStreamingTest\src\main\java\iteso\mx\trashLevels\TrashLevel.java">
-<error line="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
-</file>
-<file name="C:\Users\javochoa\Documents\ITESO\DS\Project\StreamingDS-JO-VC\VideoStreamingTest\src\main\java\iteso\mx\trashLevels\TrashLevelAdvanced.java">
-<error line="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
-</file>
-<file name="C:\Users\javochoa\Documents\ITESO\DS\Project\StreamingDS-JO-VC\VideoStreamingTest\src\main\java\iteso\mx\trashLevels\TrashLevelBegginer.java">
-<error line="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
-</file>
-<file name="C:\Users\javochoa\Documents\ITESO\DS\Project\StreamingDS-JO-VC\VideoStreamingTest\src\main\java\iteso\mx\trashLevels\TrashLevelIntermediate.java">
-<error line="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<file name="D:\Documents\ITESO\Diseño de Software\Repositorios\StreamingDS-JO-VC\VideoStreamingTest\src\main\java\iteso\mx\trash\Trash.java">
 </file>
 </checkstyle>

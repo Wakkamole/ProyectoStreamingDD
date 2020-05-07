@@ -1,9 +1,6 @@
 package iteso.mx;
 
 import iteso.mx.games.result.SingletonGameResult;
-import iteso.mx.trash.AdvancedTrash;
-import iteso.mx.trash.BeginnerTrash;
-import iteso.mx.trash.IntermediateTrash;
 import iteso.mx.trash.Trash;
 
 
@@ -34,6 +31,7 @@ public abstract class Game {
     /** levelString. */
     private String levelString;
 
+    /** TrashFactory variable. */
     private static Trash trashFactory;
 
     /**
@@ -54,6 +52,8 @@ public abstract class Game {
      */
 
     private ArrayList<Integer> randomNumbers = new ArrayList<>();
+
+
 
 
     /**
@@ -115,6 +115,14 @@ public abstract class Game {
     }
 
     /**
+     *
+     * @return levelString string.
+     */
+    public String getLevelString() {
+        return levelString;
+    }
+
+    /**
      * Implementation of this method depends
      * on the level.
      */
@@ -162,12 +170,14 @@ public abstract class Game {
             + timeLimit + " seconds");
 
         System.out.println();
+
     }
 
     /**
-     * StartGame.
+     *
+     * @param trash1 .
      */
-    public void startGame(ArrayList<Trash> trash) {
+    public void startGame(final ArrayList<Trash> trash1) {
 
         Scanner input = new Scanner(System.in);
         System.out.println("Ready... Set... Go!");
@@ -179,12 +189,13 @@ public abstract class Game {
 
         long timeSpend = 0;
 
-        SingletonGameResult gameResult = SingletonGameResult.getInstance("Game Result");
+        SingletonGameResult gameResult =
+            SingletonGameResult.getInstance("Game Result");
         for (int i = 0; i < numObjects; i++) {
 
             /* Print trash object and menu option */
 
-            System.out.println(trash.get(randomNumbers.get(i)).getName());
+            System.out.println(trash1.get(randomNumbers.get(i)).getName());
 
             System.out.println();
 
@@ -196,19 +207,21 @@ public abstract class Game {
             String answer = input.nextLine();
 
             boolean isCorrect = evalAnswer(
-                    answer, trash.get(i).getValue());
+                    answer, trash1.get(i).getValue());
 
             /*in results array, write in "i" position
             the name of the trash and if he got it right or wrong*/
 
             if (isCorrect) {
-                gameResult.score ++;
+                gameResult.score++;
                 gameResult.results.add("Trash object number " + i
-                        + " known as " + trash.get(randomNumbers.get(i)).getName()
+                        + " known as "
+                        + trash1.get(randomNumbers.get(i)).getName()
                         + " was correct!");
             } else {
                 gameResult.results.add("Trash object number " + i
-                        + " known as " + trash.get(randomNumbers.get(i)).getName()
+                        + " known as "
+                        + trash1.get(randomNumbers.get(i)).getName()
                         + " was incorrect");
             }
 

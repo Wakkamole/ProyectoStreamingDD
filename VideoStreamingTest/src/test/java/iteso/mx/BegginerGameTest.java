@@ -1,6 +1,7 @@
 package iteso.mx;
 
 import iteso.mx.games.*;
+import iteso.mx.trash.BeginnerTrash;
 import iteso.mx.trash.Trash;
 
 import org.junit.Test;
@@ -10,37 +11,37 @@ import static org.junit.Assert.*;
 public class BegginerGameTest {
 
   BegginerGame Game;
-  //TrashLevelBegginer mockedTrashLevel;
+  BeginnerTrash mockedBeginnerTrash;
   Trash trash;
 
   @Before
   public void setUp() {
     Game = new BegginerGame();
-    //mockedTrashLevel = new TrashLevelBegginer();
+    mockedBeginnerTrash = new BeginnerTrash();
   }
 
   @Test
-  public void testEvalAnswerACorrect(){
-    //mockedTrashLevel.setValue("Organico");
-    //assertTrue(Game.evalAnswer("a", mockedTrashLevel.getValue()));
+  public void testEvalAnswerACorrect() {
+    mockedBeginnerTrash.setValue("Organico");
+    assertTrue(Game.evalAnswer("a", mockedBeginnerTrash.getValue()));
   }
 
   @Test
-  public void testEvalAnswerAincorrect(){
-    //mockedTrashLevel.setValue("Organico");
-    //assertFalse(Game.evalAnswer("b", mockedTrashLevel.getValue()));
+  public void testEvalAnswerAincorrect() {
+    mockedBeginnerTrash.setValue("Organico");
+    assertFalse(Game.evalAnswer("b", mockedBeginnerTrash.getValue()));
   }
 
   @Test
-  public void testEvalAnswerBCorrect(){
-    //mockedTrashLevel.setValue("Inorganico");
-    //assertTrue(Game.evalAnswer("b", mockedTrashLevel.getValue()));
+  public void testEvalAnswerBCorrect() {
+    mockedBeginnerTrash.setValue("Inorganico");
+    assertTrue(Game.evalAnswer("b", mockedBeginnerTrash.getValue()));
   }
 
   @Test
-  public void testEvalAnswerBincorrect(){
-    //mockedTrashLevel.setValue("Inorganico");
-    //assertFalse(Game.evalAnswer("a", mockedTrashLevel.getValue()));
+  public void testEvalAnswerBIncorrect() {
+    mockedBeginnerTrash.setValue("Inorganico");
+    assertFalse(Game.evalAnswer("a", mockedBeginnerTrash.getValue()));
   }
 
   @Test
@@ -62,6 +63,18 @@ public class BegginerGameTest {
   @Test
   public void testLevel(){
     assertEquals(1, Game.getLevel());
+  }
+
+  @Test
+  public void testLevelString() {
+    assertEquals("Beginner", Game.getLevelString());
+  }
+
+  @Test
+  public void setRandomNumbersTest() {
+    int num = 25;
+    Game.setNumObjects(num);
+    assertTrue(Game.setRandomNumbers().size() > 0);
   }
 
 }

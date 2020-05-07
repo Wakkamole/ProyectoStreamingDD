@@ -12,13 +12,28 @@ import iteso.mx.trash.Trash;
 
 import java.util.ArrayList;
 
-
+/**
+ * GameFacade Class.
+ */
 public class GameFacade {
 
+    /** LEVEL_1 constant. */
+    private static final int LEVEL_1 = 1;
+    /** LEVEL_2 constant. */
+    private static final int LEVEL_2 = 2;
+    /** LEVEL_3 constant. */
+    private static final int LEVEL_3 = 3;
+
+    /** trashFactory Trash object. */
     private static Trash trashFactory;
+    /** Trash Array.  */
     private ArrayList<Trash> trash;
 
-    public void StartGame(String option){
+    /**
+     *
+     * @param option .
+     */
+    public void startGame(final String option) {
 
         if (option.equals("a")) {
             Game game = new BegginerGame();
@@ -34,21 +49,26 @@ public class GameFacade {
         }
     }
 
-    public void playGame(Game game){
+    /**
+     *
+     * @param game .
+     */
+    public void playGame(final Game game) {
         game.prepareGame();
 
-        if(game.getLevel() == 1){
+        if (game.getLevel() == LEVEL_1) {
             trashFactory = new BeginnerTrash();
-        }else if (game.getLevel() == 2){
+        } else if (game.getLevel() == LEVEL_2) {
             trashFactory = new IntermediateTrash();
-        }else if(game.getLevel() == 3){
+        } else if (game.getLevel() == LEVEL_3) {
             trashFactory = new AdvancedTrash();
         }
 
         trash = trashFactory.loadTrash();
         game.startGame(trash);
 
-        SingletonGameResult gameResult = SingletonGameResult.getInstance("Game Result");
+        SingletonGameResult gameResult =
+            SingletonGameResult.getInstance("Game Result");
         gameResult.numObjects = game.getNumObjects();
         gameResult.printResults();
         gameResult.resetInstance();

@@ -1,35 +1,60 @@
 package iteso.mx.trash;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * IntermediateTrash Class implements Trash.
+ */
 public class IntermediateTrash implements Trash {
 
     /** String name. */
-    String name = "";
+    private String name = "";
     /** TrashLevel value. */
-    String value = null;
+    private String value = null;
 
+    /**
+     * getName method.
+     */
     @Override
     public String getName() {
         return name;
     }
 
+    /**
+     * setName method.
+     * @param name1 .
+     */
     @Override
-    public void setName(String name1) {
+    public void setName(final String name1) {
         this.name = name1;
     }
 
+    /**
+     * getValue method.
+     */
     @Override
     public String getValue() {
         return value;
     }
 
+    /**
+     * setValue method.
+     * @param value1 .
+     */
     @Override
-    public void setValue(String value1) {
+    public void setValue(final String value1) {
         this.value = value1;
     }
 
+    /**
+     * loadTash method.
+     * @return tmpTrash.
+     */
     @Override
     public ArrayList<Trash> loadTrash() {
         ArrayList<Trash> tmpTrash = new ArrayList<Trash>();
@@ -48,12 +73,12 @@ public class IntermediateTrash implements Trash {
             while (rs.next()) {
 
                 //int id = rs.getInt("ID");
-                String name = rs.getString("Name");
-                String value = rs.getString("IntermediateValue");
+                String name2 = rs.getString("Name");
+                String value2 = rs.getString("IntermediateValue");
 
                 Trash tmpTrashObject = new IntermediateTrash();
-                tmpTrashObject.setName(name);
-                tmpTrashObject.setValue(value);
+                tmpTrashObject.setName(name2);
+                tmpTrashObject.setValue(value2);
 
                 tmpTrash.add(tmpTrashObject);
             }
